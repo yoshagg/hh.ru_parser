@@ -1,5 +1,4 @@
 from classes.headhunter_api import HeadHunterAPI
-from classes.superjob_api import SuperJobAPI
 
 
 def user_interaction():
@@ -7,25 +6,15 @@ def user_interaction():
     Функция для взаимодействия с пользователем
     :return: словарь найденных вакансий по запросу пользователя
     """
-    quantity = int(input('Введите количество вакансий для поиска: '))
-    keyword = str(input('Введите ключевое слово: '))
-    search_query = int(input('Выберите сайт, на котором искать вакансии: "HeadHunter" - 1 или "SuperJob" - 2\n'))
-    if search_query not in [1, 2]:
-        print('Введите 1 или 2: "HeadHunter" - 1 или "SuperJob" - 2\n')
-        user_interaction()
-    elif search_query == 1:
-        hh_api = HeadHunterAPI()
-        vacancies = hh_api.get_vacancies(keyword, quantity)
-        print(f'Найдено {len(vacancies)} вакансий')
-        return vacancies
-    else:
-        sj_api = SuperJobAPI()
-        vacancies = sj_api.get_vacancies(keyword, quantity)
-        print(f'Найдено {len(vacancies)} вакансий')
-        return vacancies
+    quantity = int(input('Введите количество вакансий для поиска:'))
+    keyword = str(input('Введите ключевое слово:'))
+    hh_api = HeadHunterAPI()
+    vacancies = hh_api.get_vacancies(keyword, quantity)
+    print(f'Найдено {len(vacancies)} вакансий')
+    return vacancies
 
 
-def choiсe_command():
+def choice_command():
     """
     Функция для выбора действий пользователя
     :return: команда пользователя
