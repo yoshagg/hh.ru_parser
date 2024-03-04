@@ -1,6 +1,6 @@
 from classes.vacancy import Vacancy
 from classes.json_saver import JSONSaver
-from funcs import user_interaction, choise_command
+from funcs import user_interaction, choiсe_command
 
 vac = user_interaction()
 json_saver = JSONSaver()
@@ -8,7 +8,7 @@ json_saver.to_json(vac)
 print('Найденные вакансии сохранены в файл')
 command = 0
 while command != 5:
-    command = choise_command()
+    command = choiсe_command()
     if command == 1:
         vac2 = user_interaction()
         second_search = input('Дозаписать найденные вакансии в файл? Да - 1')
